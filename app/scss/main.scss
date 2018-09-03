@@ -1,0 +1,260 @@
+//Custom Colors
+$colorPrimary: #ff4136;
+$colorSecondary: #001f3f;
+$colorAccent: #e8a63d;
+$colorAccentSecondary: #78d4eb;
+
+$colorBackground: #f1ffeb;
+
+$white: #fff;
+$black: #000;
+$black_70: rgba(0,0,0,.7);
+$white_70: hsla(0,0%,100%,.7);
+
+
+$transitionAllFive: all .5s;
+$transitionAllTwoEase: all .2s ease-in;
+
+//Custom Transition
+
+@mixin transition($x...){
+	-webkit-transition: $x;
+	-moz-transition: $x;
+	-ms-transition: $x;
+	-o-transition: $x;
+	transition: $x;
+}
+
+body {
+	font-family: "Bitter","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 1.4rem;
+	text-rendering: auto;
+}
+
+a {
+	color: $colorPrimary;
+}
+
+::-moz-selection {
+	background: $colorAccent;
+}
+::selection {
+	background: $colorAccent;
+}
+@media screen and(max-width: 900px) {
+	html {
+		font-size: calc(12px +.2vw);
+	}
+}
+.nav {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 60px;
+	.links {
+		display: inline-block;
+		transition: left .5s;
+		padding: 2vh;
+		margin-top: -5px;
+		background: $black_70;
+		li {
+			display: inline-block;
+			margin-right: 10px;
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		a {
+			position: relative;
+			display: inline-block;
+			padding: 10px 15px;
+			text-transform: uppercase;
+			font-size: 1.1em;
+			color: $white;
+			text-decoration: none;
+			transition: color .5s;
+			&:after {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				height: 2px;
+				@include transition($transitionAllFive)
+				width: 0;
+				background: $colorPrimary;
+			}
+			&:before {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				height: 2px;
+				@include transition($transitionAllFive)
+				right: 0;
+				background: $white_70;
+			}
+			&:hover {
+				color: $colorPrimary;
+				&:after {
+					width: 100%;
+				}
+			}
+			&.active {
+				&:after {
+					height: 4px;
+				}
+				&:before {
+					height: 4px;
+					background: $white;
+				}
+			}
+		}
+	}
+}
+#welcome {
+	height: 100vh;
+	padding: 60px 15px 30px;
+	.header {
+		display: table;
+		position: relative;
+		width: 100%;
+		height: 85%;
+	}
+}
+.text-vertical-center {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+.stroke {
+	color: $colorBackground;
+	text-shadow: -1.5px -1.5px 0 $black, 1.5px -1.5px 0 $black, -1.5px 1.5px 0 $black, 1.5px 1.5px 0 $black;
+}
+.logo {
+	width: 10%;
+	pointer-events: none;
+	user-select: none;
+}
+#particles-js {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $colorSecondary;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+}
+footer {
+	padding: 100px 0;
+	background: $colorBackground;
+}
+#down-button {
+	color: $colorPrimary;
+	position: absolute;
+	z-index: 2;
+	top: 92vh;
+	left: 50%;
+	padding-bottom: 10px;
+	transform: translate3d(-50%,-100%,0);
+	user-select: auto;
+	font-size: 5.5rem;
+	@include transition($transitionAllTwoEase)
+	&:hover {
+		color: $colorAccentSecondary;
+	}
+	&:focus {
+		color: $colorAccentSecondary;
+	}
+	&:active {
+		color: $colorAccentSecondary;
+	}
+}
+#to-top {
+	display: none;
+	position: fixed;
+	bottom: 5px;
+	right: 5px;
+	color: $colorPrimary;
+	font-size: 3em;
+	line-height: 0;
+}
+.btn-light {
+	border-radius: 0;
+	color: $colorSecondary;
+	background-color: $colorAccentSecondary;
+	@include transition($transitionAllTwoEase)
+	&:hover {
+		color: $colorSecondary;
+		background-color: $colorSecondary;
+	}
+	&:focus {
+		color: $colorSecondary;
+		background-color: $colorSecondary;
+	}
+	&:active {
+		color: $colorSecondary;
+		background-color: $colorSecondary;
+	}
+}
+.section:not(#welcome) {
+	position: relative;
+	min-height: 30vh;
+	padding: 75px 15px 50px;
+	text-align: center;
+}
+div:not(#particles-js) {
+	z-index: 2;
+}
+.particles canvas {
+	user-select: none;
+}
+#skills {
+	background: $colorPrimary;
+	color: $colorBackground;
+}
+
+#skills article {
+	position: relative;
+	max-width: 900px;
+	margin: 0 auto;
+	z-index: 2;
+	> ul {
+		flex-wrap: wrap;
+		list-style: none;
+		align-items: center;
+		margin: 50px 0 0;
+		padding: 0;
+		display: flex;
+		justify-content: center;
+		li {
+			display: flex;
+			justify-content: center;
+			position: relative;
+			flex: 0 1 25%;
+			margin: 0 30px 40px;
+			padding: 1.25em;
+			background: $colorBackground;
+			border-bottom: 3px solid $colorSecondary;
+			color: $colorSecondary;
+			@include transition($transitionAllFive)
+			&:after {
+				content: "";
+				position: absolute;
+				bottom: -3px;
+				left: 0;
+				border-right: 10px solid transparent;
+				border-bottom: 10px solid $colorSecondary;
+			}
+		}
+	}
+}
+hr.small {
+	max-width: 10vh;
+}
