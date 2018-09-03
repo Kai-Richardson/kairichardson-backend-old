@@ -222,5 +222,55 @@ div:not(#particles-js) {
         border-right: 10px solid transparent;
         border-bottom: 10px solid #001f3f; }
 
+#portfolio {
+  background: #78d4eb;
+  color: #ff4136; }
+
+#portfolio article {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  z-index: 2; }
+  #portfolio article > ul {
+    flex-wrap: wrap;
+    list-style: none;
+    align-items: center;
+    margin: 50px 0 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; }
+    #portfolio article > ul li {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      flex: 0 1 25%;
+      margin: 0 30px 40px;
+      padding: 1.25em;
+      background: #f1ffeb;
+      border-bottom: 3px solid #ff4136;
+      color: #001f3f;
+      -webkit-transition: all 0.5s;
+      -moz-transition: all 0.5s;
+      -ms-transition: all 0.5s;
+      -o-transition: all 0.5s;
+      transition: all 0.5s; }
+      #portfolio article > ul li:after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #ff4136; }
+
+#portfolio img {
+  width: 100%;
+  /*or 70%, or what you want*/
+  height: 100%;
+  /*or 70%, or what you want*/
+  border: 0.2em solid black;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+
 hr.small {
   max-width: 10vh; }

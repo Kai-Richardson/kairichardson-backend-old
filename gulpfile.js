@@ -12,12 +12,12 @@ var browserSync = require('browser-sync').create();
 var realFavicon = require ('gulp-real-favicon');
 var fs = require('fs');
 var convertNewline = require('gulp-convert-newline');
-var imageResize = require("gulp-image-resize");
+
 
 gulp.task('build', function (callback) {
 	runSequence('clean:dist',
-		['sass', 'images', 'fonts', 'copy'],
-		'thumbnails',
+		'images',
+		['sass', 'fonts', 'copy'],
 		'useref',
 		'inject-favicon-markups',
 		'lineEndings',
@@ -59,18 +59,8 @@ gulp.task('sass', function() {
 });
 
 gulp.task('images', function(){
-	return gulp.src('app/img/**/*.+(png|jpg|gif|svg)')
+	return gulp.src(['app/img/**/*.+(png|jpg|gif|svg)'])
 	.pipe(cache(imagemin()))
-	.pipe(gulp.dest('dist/img'))
-});
-
-gulp.task('thumbnails', function(){
-	return gulp.src('dist/img/**/*.+(png|jpg|gif|svg)')
-	.pipe(cache(gulpImageresize({
-		imageMagick: true,
-		width: 100,
-		height: 200
-	})))
 	.pipe(gulp.dest('dist/img'))
 });
 
