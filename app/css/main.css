@@ -136,11 +136,11 @@ footer {
   -o-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in; }
   #down-button:hover {
-    color: #78d4eb; }
+    color: #7fcbe2; }
   #down-button:focus {
-    color: #78d4eb; }
+    color: #7fcbe2; }
   #down-button:active {
-    color: #78d4eb; }
+    color: #7fcbe2; }
 
 #to-top {
   display: none;
@@ -154,7 +154,7 @@ footer {
 .btn-light {
   border-radius: 0;
   color: #001f3f;
-  background-color: #78d4eb;
+  background-color: #7fcbe2;
   -webkit-transition: all 0.2s ease-in;
   -moz-transition: all 0.2s ease-in;
   -ms-transition: all 0.2s ease-in;
@@ -220,28 +220,24 @@ div:not(#particles-js) {
         border-right: 10px solid transparent;
         border-bottom: 10px solid #001f3f; }
 
-#portfolio {
-  background: #78d4eb;
+#projects {
+  background: #7fcbe2;
   color: #ff4136; }
 
-#portfolio article {
+#projects article {
   position: relative;
-  max-width: 900px;
+  max-width: 75%;
   margin: 0 auto;
   z-index: 2; }
-  #portfolio article > ul {
+  #projects article > ul {
     flex-wrap: wrap;
     list-style: none;
     align-items: center;
     margin: 50px 0 0;
-    padding: 0;
-    display: flex;
-    justify-content: center; }
-    #portfolio article > ul li {
-      display: flex;
-      justify-content: center;
+    padding: 0; }
+    #projects article > ul li {
       position: relative;
-      flex: 0 1 25%;
+      flex: 0 0 100%;
       margin: 0 30px 40px;
       padding: 1.25em;
       background: #f1ffeb;
@@ -252,7 +248,7 @@ div:not(#particles-js) {
       -ms-transition: all 0.5s;
       -o-transition: all 0.5s;
       transition: all 0.5s; }
-      #portfolio article > ul li:after {
+      #projects article > ul li:after {
         content: "";
         position: absolute;
         bottom: -3px;
@@ -260,7 +256,7 @@ div:not(#particles-js) {
         border-right: 10px solid transparent;
         border-bottom: 10px solid #ff4136; }
 
-#portfolio img {
+#projects img {
   width: 100%;
   height: 100%;
   border: 0.2em solid black;
@@ -270,3 +266,6 @@ div:not(#particles-js) {
 
 hr.small {
   max-width: 10vh; }
+
+.color_main {
+  color: #e8a63d; }

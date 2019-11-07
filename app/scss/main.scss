@@ -2,7 +2,7 @@
 $colorPrimary: #ff4136;
 $colorSecondary: #001f3f;
 $colorAccent: #e8a63d;
-$colorAccentSecondary: #78d4eb;
+$colorAccentSecondary: #7fcbe2;
 
 $colorBackground: #f1ffeb;
 
@@ -44,6 +44,8 @@ a {
 		font-size: calc(12px +.2vw);
 	}
 }
+
+//Navigation bar on the top left
 .nav {
 	position: fixed;
 	display: flex;
@@ -113,6 +115,8 @@ a {
 		}
 	}
 }
+
+//Top of page welcome
 #welcome {
 	height: 100vh;
 	padding: 60px 15px 30px;
@@ -253,14 +257,14 @@ div:not(#particles-js) {
 	}
 }
 
-#portfolio {
+#projects {
 	background: $colorAccentSecondary;
 	color: $colorPrimary;
 }
 
-#portfolio article {
+#projects article {
 	position: relative;
-	max-width: 900px;
+	max-width: 75%;
 	margin: 0 auto;
 	z-index: 2;
 	> ul {
@@ -269,13 +273,9 @@ div:not(#particles-js) {
 		align-items: center;
 		margin: 50px 0 0;
 		padding: 0;
-		display: flex;
-		justify-content: center;
 		li {
-			display: flex;
-			justify-content: center;
 			position: relative;
-			flex: 0 1 25%;
+			flex: 0 0 100%;
 			margin: 0 30px 40px;
 			padding: 1.25em;
 			background: $colorBackground;
@@ -294,7 +294,7 @@ div:not(#particles-js) {
 	}
 }
 
-#portfolio img {
+#projects img {
 	width:  100%;
 	height: 100%;
 	border: 0.2em solid black;
@@ -302,6 +302,12 @@ div:not(#particles-js) {
 	background-position: center;
 	background-repeat: no-repeat;
 }
+
+//Small hr for accents
 hr.small {
 	max-width: 10vh;
+}
+
+.color_main {
+	color: $colorAccent;
 }
