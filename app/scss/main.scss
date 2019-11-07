@@ -81,7 +81,7 @@ a {
 				bottom: 0;
 				left: 0;
 				height: 2px;
-				@include transition($transitionAllFive)
+				@include transition($transitionAllFive);
 				width: 0;
 				background: $colorPrimary;
 			}
@@ -91,7 +91,7 @@ a {
 				bottom: 0;
 				left: 0;
 				height: 2px;
-				@include transition($transitionAllFive)
+				@include transition($transitionAllFive);
 				right: 0;
 				background: $white_70;
 			}
@@ -137,6 +137,7 @@ a {
 	pointer-events: none;
 	user-select: none;
 }
+
 #particles-js {
 	position: absolute;
 	z-index: -1;
@@ -163,7 +164,7 @@ footer {
 	transform: translate3d(-50%,-100%,0);
 	user-select: auto;
 	font-size: 5.5rem;
-	@include transition($transitionAllTwoEase)
+	@include transition($transitionAllTwoEase);
 	&:hover {
 		color: $colorAccentSecondary;
 	}
@@ -187,7 +188,7 @@ footer {
 	border-radius: 0;
 	color: $colorSecondary;
 	background-color: $colorAccentSecondary;
-	@include transition($transitionAllTwoEase)
+	@include transition($transitionAllTwoEase);
 	&:hover {
 		color: $colorSecondary;
 		background-color: $colorSecondary;
@@ -232,8 +233,6 @@ div:not(#particles-js) {
 		display: flex;
 		justify-content: center;
 		li {
-			display: flex;
-			justify-content: center;
 			position: relative;
 			flex: 0 1 25%;
 			margin: 0 30px 40px;
@@ -241,7 +240,7 @@ div:not(#particles-js) {
 			background: $colorBackground;
 			border-bottom: 3px solid $colorSecondary;
 			color: $colorSecondary;
-			@include transition($transitionAllFive)
+			@include transition($transitionAllFive);
 			&:after {
 				content: "";
 				position: absolute;
@@ -282,7 +281,7 @@ div:not(#particles-js) {
 			background: $colorBackground;
 			border-bottom: 3px solid $colorPrimary;
 			color: $colorSecondary;
-			@include transition($transitionAllFive)
+			@include transition($transitionAllFive);
 			&:after {
 				content: "";
 				position: absolute;

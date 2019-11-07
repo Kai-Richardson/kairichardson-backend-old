@@ -54,7 +54,7 @@ gulp.task('sass', function() {
 	.pipe(gulp.dest('app/css'))
 	.pipe(browserSync.reload({
 		stream: true,
-		browser: "chrome.exe"
+		browser: "firefox.exe"
 	}))
 });
 

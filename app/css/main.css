@@ -200,8 +200,6 @@ div:not(#particles-js) {
     display: flex;
     justify-content: center; }
     #skills article > ul li {
-      display: flex;
-      justify-content: center;
       position: relative;
       flex: 0 1 25%;
       margin: 0 30px 40px;
