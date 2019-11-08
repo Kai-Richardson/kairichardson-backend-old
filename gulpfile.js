@@ -1,17 +1,19 @@
-var gulp = require('gulp');
-var del = require('del');
-var runSequence = require('run-sequence');
-var sass = require('gulp-sass');
-var cssnano = require('gulp-cssnano');
-var imagemin = require('gulp-imagemin');
-var cache = require('gulp-cache');
-var useref = require('gulp-useref')
-var uglify = require('gulp-uglify');
-var gulpIf = require('gulp-if');
-var browserSync = require('browser-sync').create();
-var realFavicon = require('gulp-real-favicon');
-var fs = require('fs');
-var convertNewline = require('gulp-convert-newline');
+const gulp = require('gulp');
+const del = require('del');
+const sass = require('gulp-sass');
+const cssnano = require('cssnano');
+const postcss = require('gulp-postcss');
+const uncss = require('postcss-uncss');
+const autoprefixer = require('autoprefixer');
+const imagemin = require('gulp-imagemin');
+const cache = require('gulp-cache');
+const useref = require('gulp-useref');
+const uglify = require('gulp-uglify');
+const gulpIf = require('gulp-if');
+const browserSync = require('browser-sync').create();
+const realFavicon = require('gulp-real-favicon');
+const fs = require('fs');
+const convertNewline = require('gulp-convert-newline');
 
 
 gulp.task('lineEndings', function () {
@@ -23,6 +25,8 @@ gulp.task('lineEndings', function () {
 gulp.task('clean:dist', async function () {
 	del.sync(['dist/**', '!dist']);
 });
+
+
 
 gulp.task('sass', function () {
 	return gulp.src('app/scss/**/*.+(scss|sass)')
@@ -46,10 +50,13 @@ gulp.task('fonts', function () {
 })
 
 gulp.task('useref', function () {
+	var plugins = [
+		autoprefixer(),
+		cssnano()]
 	return gulp.src('app/*.html')
-		.pipe(useref())
+		.pipe(gulpIf('*.html', useref()))
 		.pipe(gulpIf('*.js', uglify()))
-		.pipe(gulpIf('*.css', cssnano()))
+		.pipe(gulpIf('*.css', postcss(plugins)))
 		.pipe(gulp.dest('dist'))
 });
 
@@ -85,9 +92,6 @@ gulp.task('watch', gulp.series('browserSync', 'sass', function () {
 gulp.task('default', gulp.series('sass', 'browserSync', 'watch', function (callback) {
 	callback
 }));
-
-
-
 
 // File where the favicon markups are stored
 var FAVICON_DATA_FILE = 'faviconData.json';
