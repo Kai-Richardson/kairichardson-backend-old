@@ -3,7 +3,6 @@ const del = require('del');
 const sass = require('gulp-sass');
 const cssnano = require('cssnano');
 const postcss = require('gulp-postcss');
-const uncss = require('postcss-uncss');
 const autoprefixer = require('autoprefixer');
 const imagemin = require('gulp-imagemin');
 const cache = require('gulp-cache');
