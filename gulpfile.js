@@ -9,94 +9,84 @@ var useref = require('gulp-useref')
 var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 var browserSync = require('browser-sync').create();
-var realFavicon = require ('gulp-real-favicon');
+var realFavicon = require('gulp-real-favicon');
 var fs = require('fs');
 var convertNewline = require('gulp-convert-newline');
 
 
-gulp.task('build', function (callback) {
-	runSequence('clean:dist',
-		'images',
-		['sass', 'fonts', 'copy'],
-		'useref',
-		'inject-favicon-markups',
-		'lineEndings',
-		callback
-	)
-})
-
-gulp.task('default', function (callback) {
-	runSequence(['sass','browserSync', 'watch'],
-		callback
-	)
-})
-
-gulp.task('lineEndings', function() {
+gulp.task('lineEndings', function () {
 	return gulp.src('dist/index.html')
-	.pipe(convertNewline())
-	.pipe(gulp.dest("dist/"));
+		.pipe(convertNewline())
+		.pipe(gulp.dest("dist/"));
 });
 
-gulp.task('clean:dist', function() {
-	return del.sync(['dist/**', '!dist']);
+gulp.task('clean:dist', async function () {
+	del.sync(['dist/**', '!dist']);
 });
 
-gulp.task('watch',['browserSync', 'sass'], function() {
-	gulp.watch('app/scss/**/*.+(scss|sass)', ['sass'])
-	//Let's check HTML and JS files as well.
-	gulp.watch('app/*.html', browserSync.reload);
-	gulp.watch('app/js/**/*.js', browserSync.reload);
-});
-
-gulp.task('sass', function() {
+gulp.task('sass', function () {
 	return gulp.src('app/scss/**/*.+(scss|sass)')
-	.pipe(sass())
-	.pipe(gulp.dest('app/css'))
-	.pipe(browserSync.reload({
-		stream: true,
-		browser: "firefox.exe"
-	}))
+		.pipe(sass())
+		.pipe(gulp.dest('app/css'))
+		.pipe(browserSync.reload({
+			stream: true,
+			browser: "firefox.exe"
+		}))
 });
 
-gulp.task('images', function(){
+gulp.task('images', function () {
 	return gulp.src(['app/img/**/*.+(png|jpg|gif|svg)'])
-	.pipe(cache(imagemin()))
-	.pipe(gulp.dest('dist/img'))
+		.pipe(cache(imagemin()))
+		.pipe(gulp.dest('dist/img'))
 });
 
-gulp.task('fonts', function() {
+gulp.task('fonts', function () {
 	return gulp.src('app/fonts/**/*')
-	.pipe(gulp.dest('dist/fonts'))
+		.pipe(gulp.dest('dist/fonts'))
 })
 
-gulp.task('useref', function() {
+gulp.task('useref', function () {
 	return gulp.src('app/*.html')
-	.pipe(useref())
-	.pipe(gulpIf('*.js', uglify()))
-	.pipe(gulpIf('*.css', cssnano()))
-	.pipe(gulp.dest('dist'))
+		.pipe(useref())
+		.pipe(gulpIf('*.js', uglify()))
+		.pipe(gulpIf('*.css', cssnano()))
+		.pipe(gulp.dest('dist'))
 });
 
-gulp.task('copy', function () {
+gulp.task('copy', function (done) {
 	gulp.src('app/CNAME')
-			.pipe(gulp.dest('dist'));
+		.pipe(gulp.dest('dist'));
 	gulp.src('app/LICENSE')
-			.pipe(gulp.dest('dist'));
+		.pipe(gulp.dest('dist'));
 	gulp.src('app/robots.txt')
-			.pipe(gulp.dest('dist'));
+		.pipe(gulp.dest('dist'));
 	gulp.src('app/README.md')
-			.pipe(gulp.dest('dist'));
+		.pipe(gulp.dest('dist'));
 	gulp.src('app/assets/**/*')
-			.pipe(gulp.dest('dist/assets'));
+		.pipe(gulp.dest('dist/assets'));
+	done();
 });
 
-gulp.task('browserSync', function() {
+gulp.task('browserSync', function () {
 	browserSync.init({
 		server: {
 			baseDir: 'app'
 		},
 	})
 });
+
+gulp.task('watch', gulp.series('browserSync', 'sass', function () {
+	gulp.watch('app/scss/**/*.+(scss|sass)', ['sass'])
+	//Let's check HTML and JS files as well.
+	gulp.watch('app/*.html', browserSync.reload);
+	gulp.watch('app/js/**/*.js', browserSync.reload);
+}));
+
+gulp.task('default', gulp.series('sass', 'browserSync', 'watch', function (callback) {
+	callback
+}));
+
+
 
 
 // File where the favicon markups are stored
@@ -106,7 +96,7 @@ var FAVICON_DATA_FILE = 'faviconData.json';
 // You should run it at least once to create the icons. Then,
 // you should run it whenever RealFaviconGenerator updates its
 // package (see the check-for-favicon-update task below).
-gulp.task('generate-favicon', function(done) {
+gulp.task('generate-favicon', function (done) {
 	realFavicon.generateFavicon({
 		masterPicture: 'app/img/logo.svg',
 		dest: 'dist/img',
@@ -172,15 +162,15 @@ gulp.task('generate-favicon', function(done) {
 			errorOnImageTooSmall: false
 		},
 		markupFile: FAVICON_DATA_FILE
-	}, function() {
+	}, function () {
 		done();
 	});
 });
 
 // Inject the favicon markups in your HTML pages. You should run
 // this task whenever you modify a page.
-gulp.task('inject-favicon-markups', function() {
-	return gulp.src([ 'dist/index.html' ])
+gulp.task('inject-favicon-markups', function () {
+	return gulp.src(['dist/index.html'])
 		.pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
 		.pipe(gulp.dest('dist'));
 });
@@ -189,11 +179,18 @@ gulp.task('inject-favicon-markups', function() {
 // released a new Touch icon along with the latest version of iOS).
 // Run this task from time to time. Ideally, make it part of your
 // continuous integration system.
-gulp.task('check-for-favicon-update', function(done) {
+gulp.task('check-for-favicon-update', function (done) {
 	var currentVersion = JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).version;
-	realFavicon.checkForUpdates(currentVersion, function(err) {
+	realFavicon.checkForUpdates(currentVersion, function (err) {
 		if (err) {
 			throw err;
 		}
 	});
 });
+
+gulp.task('build', gulp.series('clean:dist',
+	gulp.parallel('images', 'sass', 'fonts'),
+	'copy',
+	'useref',
+	gulp.parallel('inject-favicon-markups', 'lineEndings')
+));
