@@ -4,13 +4,13 @@ body {
   text-rendering: auto; }
 
 a {
-  color: #ff4136; }
+  color: #34b684; }
 
 ::-moz-selection {
-  background: #e8a63d; }
+  background: #4ecdc4; }
 
 ::selection {
-  background: #e8a63d; }
+  background: #4ecdc4; }
 
 @media screen and (max-width: 900px) {
   html {
@@ -53,7 +53,7 @@ a {
         height: 2px;
         transition: all 0.5s;
         width: 0;
-        background: #ff4136; }
+        background: #34b684; }
       .nav .links a:before {
         content: "";
         position: absolute;
@@ -64,7 +64,7 @@ a {
         right: 0;
         background: rgba(255, 255, 255, 0.7); }
       .nav .links a:hover {
-        color: #ff4136; }
+        color: #34b684; }
         .nav .links a:hover:after {
           width: 100%; }
       .nav .links a.active:after {
@@ -88,7 +88,7 @@ a {
   vertical-align: middle; }
 
 .stroke {
-  color: #f1ffeb;
+  color: #e6ebe0;
   text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000; }
 
 .logo {
@@ -103,17 +103,17 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #001f3f;
+  background-color: #1a535c;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%; }
 
 footer {
   padding: 100px 0;
-  background: #f1ffeb; }
+  background: #e6ebe0; }
 
 #down-button {
-  color: #ff4136;
+  color: #34b684;
   position: absolute;
   z-index: 2;
   top: 92vh;
@@ -124,35 +124,35 @@ footer {
   font-size: 5.5rem;
   transition: all 0.2s ease-in; }
   #down-button:hover {
-    color: #7fcbe2; }
+    color: #ed6a5a; }
   #down-button:focus {
-    color: #7fcbe2; }
+    color: #ed6a5a; }
   #down-button:active {
-    color: #7fcbe2; }
+    color: #ed6a5a; }
 
 #to-top {
   display: none;
   position: fixed;
   bottom: 5px;
   right: 5px;
-  color: #ff4136;
+  color: #34b684;
   font-size: 3em;
   line-height: 0; }
 
 .btn-light {
   border-radius: 0;
-  color: #001f3f;
-  background-color: #7fcbe2;
+  color: #1a535c;
+  background-color: #ed6a5a;
   transition: all 0.2s ease-in; }
   .btn-light:hover {
-    color: #001f3f;
-    background-color: #001f3f; }
+    color: #1a535c;
+    background-color: #1a535c; }
   .btn-light:focus {
-    color: #001f3f;
-    background-color: #001f3f; }
+    color: #1a535c;
+    background-color: #1a535c; }
   .btn-light:active {
-    color: #001f3f;
-    background-color: #001f3f; }
+    color: #1a535c;
+    background-color: #1a535c; }
 
 .section:not(#welcome) {
   position: relative;
@@ -167,8 +167,8 @@ div:not(#particles-js) {
   user-select: none; }
 
 #skills {
-  background: #ff4136;
-  color: #f1ffeb; }
+  background: #34b684;
+  color: #e6ebe0; }
 
 #skills article {
   position: relative;
@@ -188,9 +188,9 @@ div:not(#particles-js) {
       flex: 0 1 25%;
       margin: 0 30px 40px;
       padding: 1.25em;
-      background: #f1ffeb;
-      border-bottom: 3px solid #001f3f;
-      color: #001f3f;
+      background: #e6ebe0;
+      border-bottom: 3px solid #1a535c;
+      color: #1a535c;
       transition: all 0.5s; }
       #skills article > ul li:after {
         content: "";
@@ -198,11 +198,11 @@ div:not(#particles-js) {
         bottom: -3px;
         left: 0;
         border-right: 10px solid transparent;
-        border-bottom: 10px solid #001f3f; }
+        border-bottom: 10px solid #1a535c; }
 
 #projects {
-  background: #7fcbe2;
-  color: #ff4136; }
+  background: #ed6a5a;
+  color: #1a535c; }
 
 #projects article {
   position: relative;
@@ -220,9 +220,9 @@ div:not(#particles-js) {
       flex: 0 0 100%;
       margin: 0 30px 40px;
       padding: 1.25em;
-      background: #f1ffeb;
-      border-bottom: 3px solid #ff4136;
-      color: #001f3f;
+      background: #e6ebe0;
+      border-bottom: 3px solid #34b684;
+      color: #1a535c;
       transition: all 0.5s; }
       #projects article > ul li:after {
         content: "";
@@ -230,7 +230,7 @@ div:not(#particles-js) {
         bottom: -3px;
         left: 0;
         border-right: 10px solid transparent;
-        border-bottom: 10px solid #ff4136; }
+        border-bottom: 10px solid #34b684; }
 
 #projects img {
   width: 100%;
@@ -243,5 +243,5 @@ div:not(#particles-js) {
 hr.small {
   max-width: 10vh; }
 
-.color_main {
-  color: #e8a63d; }
+.accent-color {
+  color: #ed6a5a; }

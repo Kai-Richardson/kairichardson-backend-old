@@ -1,16 +1,15 @@
 //colors
-$colorPrimary: #ff4136;
-$colorSecondary: #001f3f;
-$colorAccent: #e8a63d;
-$colorAccentSecondary: #7fcbe2;
+$colorPrimary:#34b684;
+$colorSecondary:#1a535c;
+$colorAccent:#4ecdc4;
+$colorAccentSecondary: #ed6a5a;
 
-$colorBackground: #f1ffeb;
+$colorBackground: #e6ebe0;
 
 $white: #fff;
 $black: #000;
 $black_70: rgba(0,0,0,.7);
-$white_70: hsla(0,0%,100%,.7);
-
+$white_70: rgba(255, 255, 255, 0.7);
 
 $transitionAllFive: all .5s;
 $transitionAllTwoEase: all .2s ease-in;
@@ -255,7 +254,7 @@ div:not(#particles-js) {
 
 #projects {
 	background: $colorAccentSecondary;
-	color: $colorPrimary;
+	color: $colorSecondary;
 }
 
 #projects article {
@@ -304,6 +303,6 @@ hr.small {
 	max-width: 10vh;
 }
 
-.color_main {
-	color: $colorAccent;
+.accent-color {
+	color: $colorAccentSecondary;
 }
