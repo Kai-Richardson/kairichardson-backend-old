@@ -1,0 +1,3 @@
+[submodule "+secret"]
+	path = dist
+	url = git@github.com:Kai-Richardson/Kai-Richardson.github.io.git
