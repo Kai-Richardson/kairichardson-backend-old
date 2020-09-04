@@ -33,7 +33,7 @@ gulp.task('sass', function () {
 		.pipe(gulp.dest('app/css'))
 		.pipe(browserSync.reload({
 			stream: true,
-			browser: "firefox.exe"
+			browser: "edge.exe"
 		}))
 });
 
