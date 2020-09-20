@@ -154,7 +154,7 @@ footer {
 	background: $colorBackground;
 }
 #down-button {
-	color: $colorPrimary;
+	color: $colorAccentSecondary;
 	position: absolute;
 	z-index: 2;
 	top: 92vh;
@@ -165,13 +165,13 @@ footer {
 	font-size: 5.5rem;
 	@include transition($transitionAllTwoEase);
 	&:hover {
-		color: $colorAccentSecondary;
+		color: $colorAccent;
 	}
 	&:focus {
-		color: $colorAccentSecondary;
+		color: $colorAccent;
 	}
 	&:active {
-		color: $colorAccentSecondary;
+		color: $colorAccent;
 	}
 }
 #to-top {

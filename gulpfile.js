@@ -31,10 +31,7 @@ gulp.task('sass', function () {
 	return gulp.src('app/scss/**/*.+(scss|sass)')
 		.pipe(sass())
 		.pipe(gulp.dest('app/css'))
-		.pipe(browserSync.reload({
-			stream: true,
-			browser: "edge.exe"
-		}))
+		.pipe(browserSync.stream())
 });
 
 gulp.task('images', function () {
@@ -73,22 +70,20 @@ gulp.task('copy', function (done) {
 	done();
 });
 
-gulp.task('browserSync', function () {
-	browserSync.init({
-		server: {
-			baseDir: 'app'
-		},
-	})
-});
+// Static Server + watching scss/html files
+gulp.task('serve', gulp.series('sass', function(){
 
-gulp.task('watch', gulp.series('browserSync', 'sass', function () {
-	gulp.watch('app/scss/**/*.+(scss|sass)', ['sass'])
-	//Let's check HTML and JS files as well.
-	gulp.watch('app/*.html', browserSync.reload);
-	gulp.watch('app/js/**/*.js', browserSync.reload);
+    browserSync.init({
+        server: "./app"
+    });
+
+    gulp.watch("app/scss/**/*.+(scss|sass)", gulp.series('sass'));
+	gulp.watch("app/*.html").on('change', browserSync.reload);
+	gulp.watch("app/js/**/*.js").on('change', browserSync.reload);
 }));
 
-gulp.task('default', gulp.series('sass', 'browserSync', 'watch', function (callback) {
+
+gulp.task('default', gulp.series('sass', 'serve', function (callback) {
 	callback
 }));
 
