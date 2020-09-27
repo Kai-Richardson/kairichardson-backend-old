@@ -1,10 +1,15 @@
-//colors
-$colorPrimary:#34b684;
-$colorSecondary:#1a535c;
-$colorAccent:#4ecdc4;
-$colorAccentSecondary: #ed6a5a;
+/*!
+ * My Portfolio Stylesheet
+ * Copyright 2020 Kai Richardson
+ */
 
-$colorBackground: #e6ebe0;
+//colors
+$colorPrimary:#3aaf82;
+$colorSecondary: #e37163;
+$colorAccent:#4ecdc4;
+
+$colorLight: #e6ebe0;
+$colorDark:#1a535c;
 
 $white: #fff;
 $black: #000;
@@ -19,22 +24,22 @@ $transitionAllTwoEase: all .2s ease-in;
 }
 
 body {
-	font-family: "Bitter","Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size: 1.4rem;
+	font-family: "Bitter", "Helvetica Neue", Helvetica, Arial, sans-serif !important; 
 	text-rendering: auto;
 }
 
 a {
-	color: $colorPrimary;
+	color: scale-color($colorAccent, $lightness: -20%);
 }
 
 ::-moz-selection {
-	background: $colorAccent;
+	background: scale-color($colorPrimary, $lightness: 40%);
 }
 ::selection {
-	background: $colorAccent;
+	background: scale-color($colorPrimary, $lightness: 40%);
 }
-@media screen and(max-width: 900px) {
+
+@media screen and(max-width: 700px) {
 	html {
 		font-size: calc(12px +.2vw);
 	}
@@ -45,16 +50,12 @@ a {
 	position: fixed;
 	display: flex;
 	align-items: center;
+	color: $colorLight;
 	z-index: 10;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 60px;
 	.links {
 		display: inline-block;
 		transition: left .5s;
-		padding: 2vh;
-		margin-top: -5px;
+		padding: 1.5vh;
 		background: $black_70;
 		li {
 			display: inline-block;
@@ -66,7 +67,7 @@ a {
 		a {
 			position: relative;
 			display: inline-block;
-			padding: 10px 15px;
+			padding: 0.8em 0.8em;
 			text-transform: uppercase;
 			font-size: 1.1em;
 			color: $white;
@@ -77,7 +78,7 @@ a {
 				position: absolute;
 				bottom: 0;
 				left: 0;
-				height: 2px;
+				height: 0.1em;
 				@include transition($transitionAllFive);
 				width: 0;
 				background: $colorPrimary;
@@ -87,7 +88,7 @@ a {
 				position: absolute;
 				bottom: 0;
 				left: 0;
-				height: 2px;
+				height: 0.1em;
 				@include transition($transitionAllFive);
 				right: 0;
 				background: $white_70;
@@ -100,10 +101,10 @@ a {
 			}
 			&.active {
 				&:after {
-					height: 4px;
+					height: 0.2em;
 				}
 				&:before {
-					height: 4px;
+					height: 0.2em;
 					background: $white;
 				}
 			}
@@ -122,19 +123,23 @@ a {
 		height: 85%;
 	}
 }
+
 .text-vertical-center {
 	display: table-cell;
 	text-align: center;
 	vertical-align: middle;
 }
+
 .stroke {
-	color: $colorBackground;
+	color: $colorLight;
 	text-shadow: -1.5px -1.5px 0 $black, 1.5px -1.5px 0 $black, -1.5px 1.5px 0 $black, 1.5px 1.5px 0 $black;
 }
+
 .logo {
 	width: 10%;
 	pointer-events: none;
 	user-select: none;
+	margin-bottom: 1em;
 }
 
 #particles-js {
@@ -144,17 +149,15 @@ a {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: $colorSecondary;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: 50% 50%;
+	background-color: $colorDark;
+	user-select: none;
 }
 footer {
 	padding: 100px 0;
-	background: $colorBackground;
+	background: $colorLight;
 }
 #down-button {
-	color: $colorAccentSecondary;
+	color: $colorSecondary;
 	position: absolute;
 	z-index: 2;
 	top: 92vh;
@@ -184,22 +187,10 @@ footer {
 	line-height: 0;
 }
 .btn-light {
-	border-radius: 0;
-	color: $colorSecondary;
-	background-color: $colorAccentSecondary;
+	color: $colorDark;
+	background-color: $colorSecondary;
+	border-color: $colorSecondary;
 	@include transition($transitionAllTwoEase);
-	&:hover {
-		color: $colorSecondary;
-		background-color: $colorSecondary;
-	}
-	&:focus {
-		color: $colorSecondary;
-		background-color: $colorSecondary;
-	}
-	&:active {
-		color: $colorSecondary;
-		background-color: $colorSecondary;
-	}
 }
 .section:not(#welcome) {
 	position: relative;
@@ -207,102 +198,100 @@ footer {
 	padding: 75px 15px 50px;
 	text-align: center;
 }
+
 div:not(#particles-js) {
 	z-index: 2;
 }
-.particles canvas {
-	user-select: none;
-}
+
 #talents {
 	background: $colorPrimary;
-	color: $colorBackground;
-}
-
-#talents article {
-	position: relative;
-	max-width: 900px;
-	margin: 0 auto;
-	z-index: 2;
-	> ul {
-		flex-wrap: wrap;
-		list-style: none;
-		align-items: center;
-		margin: 50px 0 0;
-		padding: 0;
-		display: flex;
-		justify-content: center;
-		li {
-			position: relative;
-			flex: 0 1 25%;
-			margin: 0 30px 40px;
-			padding: 1.25em;
-			background: $colorBackground;
-			border-bottom: 3px solid $colorSecondary;
-			color: $colorSecondary;
-			@include transition($transitionAllFive);
-			&:after {
-				content: "";
-				position: absolute;
-				bottom: -3px;
-				left: 0;
-				border-right: 10px solid transparent;
-				border-bottom: 10px solid $colorSecondary;
+	color: $colorLight;
+	article {
+		position: relative;
+		max-width: 900px;
+		margin: 0 auto;
+		z-index: 2;
+		> ul {
+			flex-wrap: wrap;
+			list-style: none;
+			align-items: center;
+			margin: 50px 0 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			li {
+				position: relative;
+				flex: 0 25%;
+				margin: 0em 1.5em 2em;
+				padding: 1.25em;
+				background: $colorLight;
+				border-bottom: 3px solid $colorDark;
+				color: $colorDark;
+				@include transition($transitionAllTwoEase);
+				&:after {
+					content: "";
+					position: absolute;
+					bottom: -0.2em;
+					left: 0;
+					border-right: 0.8em solid transparent;
+					border-bottom: 0.8em solid $colorDark;
+				}
 			}
 		}
 	}
 }
 
 #projects {
-	background: $colorAccentSecondary;
-	color: $colorSecondary;
-}
-
-#projects article {
-	position: relative;
-	max-width: 75%;
-	margin: 0 auto;
-	z-index: 2;
-	> ul {
-		flex-wrap: wrap;
-		list-style: none;
-		align-items: center;
-		margin: 50px 0 0;
-		padding: 0;
-		li {
-			position: relative;
-			flex: 0 0 100%;
-			margin: 0 30px 40px;
-			padding: 1.25em;
-			background: $colorBackground;
-			border-bottom: 3px solid $colorPrimary;
-			color: $colorSecondary;
-			@include transition($transitionAllFive);
-			&:after {
-				content: "";
-				position: absolute;
-				bottom: -3px;
-				left: 0;
-				border-right: 10px solid transparent;
-				border-bottom: 10px solid $colorPrimary;
+	background: $colorSecondary;
+	color: $colorDark;
+	h1 {
+		color: $colorLight;
+	}
+	article {
+		position: relative;
+		max-width: 75%;
+		margin: 0 auto;
+		z-index: 2;
+		> ul {
+			flex-wrap: wrap;
+			list-style: none;
+			align-items: center;
+			margin: 50px 0 0;
+			padding: 0;
+			li {
+				position: relative;
+				flex: 0 0 100%;
+				margin: 0 30px 40px;
+				padding: 1.25em;
+				background: $colorLight;
+				border-bottom: 3px solid $colorPrimary;
+				color: $colorDark;
+				@include transition($transitionAllFive);
+				&:after {
+					content: "";
+					position: absolute;
+					bottom: -3px;
+					left: 0;
+					border-right: 10px solid transparent;
+					border-bottom: 10px solid $colorPrimary;
+				}
 			}
 		}
 	}
-}
-
-#projects img {
-	width:  100%;
-	height: 100%;
-	border: 0.2em solid black;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+	img {
+		width:  100%;
+		height: 100%;
+		border: 0.2em solid black;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
 }
 
 //Small hr for accents
 hr.small {
-	max-width: 10vh;
-}
-
-.accent-color {
-	color: $colorAccentSecondary;
+	max-width: 10vw;
+	color: $colorLight;
+	border-color: $colorLight;
+	background-color: $colorLight;
 }
