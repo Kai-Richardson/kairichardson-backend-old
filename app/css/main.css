@@ -166,16 +166,16 @@ div:not(#particles-js) {
 .particles canvas {
   user-select: none; }
 
-#skills {
+#talents {
   background: #34b684;
   color: #e6ebe0; }
 
-#skills article {
+#talents article {
   position: relative;
   max-width: 900px;
   margin: 0 auto;
   z-index: 2; }
-  #skills article > ul {
+  #talents article > ul {
     flex-wrap: wrap;
     list-style: none;
     align-items: center;
@@ -183,7 +183,7 @@ div:not(#particles-js) {
     padding: 0;
     display: flex;
     justify-content: center; }
-    #skills article > ul li {
+    #talents article > ul li {
       position: relative;
       flex: 0 1 25%;
       margin: 0 30px 40px;
@@ -192,7 +192,7 @@ div:not(#particles-js) {
       border-bottom: 3px solid #1a535c;
       color: #1a535c;
       transition: all 0.5s; }
-      #skills article > ul li:after {
+      #talents article > ul li:after {
         content: "";
         position: absolute;
         bottom: -3px;

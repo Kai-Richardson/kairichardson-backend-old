@@ -8,8 +8,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="robots" content="index, follow">
 	<meta name="author" content="Kai Richardson">
-	<meta name="description" content="Kai Richardson's Portfolio">
-	<meta name="keywords" content="Portfolio">
+	<meta property="profile:first_name" content="Kai">
+	<meta property="profile:last_name" content="Richardson">
+	<meta name="description" content="Developer located in Portland, OR working with software development, DevOps, and game development.">
+	<meta name="keywords" content="Portfolio Project DevOps Software Development Portland">
 	<title>Kai Richardson | Developer</title>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
@@ -30,9 +32,32 @@
 	<link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
 	<!--endbuild-->
 
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-179124560-1"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'UA-179124560-1');
+	</script>
+
+
 </head>
 
 <body>
+	<script type="application/ld+json">
+		{
+		  "@context": "http://schema.org",
+		  "@type": "Organization",
+		  "name": "Kai Richardson",
+		  "url": "https://kairichardson.com/",
+		  "address": "",
+		  "sameAs": [
+			"https://twitter.com/_kairichardson_",
+			"linkedin.com/in/kairichardson/"
+		  ]
+		}
+	</script>
 
 	<nav class="nav">
 		<ul class="links">
@@ -40,7 +65,7 @@
 				<a href="#welcome">Home</a>
 			</li>
 			<li>
-				<a href="#skills">Skills</a>
+				<a href="#talents">talents</a>
 			</li>
 			<li>
 				<a href="#projects">Projects</a>
@@ -55,9 +80,9 @@
 		<header class="header">
 			<div class="text-vertical-center">
 				<img src="img/logo.svg" class="logo" alt="KR" onerror="this.src=logo.png; this.onerror=null;" >
-				<h2 class="stroke">Hey, I'm Kai Richardson.<br>I'm a software enthusiast and a game developer.</h2>
+				<h1 class="stroke">Hey, I'm Kai Richardson.</h1><h2 class="stroke">I'm a software/DevOps enthusiast and a game developer.</h2>
 			</div>
-			<a href="#skills" id="down-button">
+			<a href="#talents" id="down-button">
 				<i class="fa fa-angle-double-down" title="Go Down"></i>
 			</a>
 		</header>
@@ -66,9 +91,9 @@
 		</div>
 	</section>
 
-	<section id="skills" class="section">
+	<section id="talents" class="section">
 		<div class="container">
-			<h2>My Talents</h2>
+			<h1>My Talents</h1>
 			<hr class="small">
 			<article>
 				<ul>
@@ -116,27 +141,27 @@
 
 	<section id="projects" class="section">
 		<div class="container">
-			<h2>Personal Projects</h2>
+			<h1>Personal Projects</h1>
 			<hr class="small">
 			<article>
 				<ul>
 					<li>
-						<a href="https://spacestation13.com">Space Station 13</a>: a community developed, wacky, multiplayer round-based role playing game since 2003.<br>
+						<h4>Kubernetes</h4> Using three Raspbery Pi 3s, I created a local ARM-based (k3s) Kubernetes swarm and distribured Docker deployments using kubectl. Currently, I'm thinking of running some simple image classification using Tensorflow.
+					</li>				
+					<li>
+						<h4><a href="https://spacestation13.com">Space Station 13</a></h4> A community developed, wacky, multiplayer round-based role playing game since 2003.<br>
 						Multiple games have been inspired by it, such as <a href="https://stationeers.com">Stationeers</a>, <a href="https://barotraumagame.com">Barotrauma</a>, and more.<br>
 						We get 31,000+ unique players per year, have over 2 million LoC, and have ~1,000 commits and ~300 PRs a month.<br>						
-						I'm a senior coder/administration lead for the <a href="https://goonhub.com">Goonstation</a> branch of the game, which is the upstream for all other branches. One downstream was the 7th most discussed repo on GitHub in 2017!
+						I'm a senior coder/administration lead for the <a href="https://goonhub.com">Goonstation</a> branch of the game, which is the upstream for all other branches. One downstream was the 7th most active repo on GitHub in 2017!
 					</li>
 					<li>
-						Using three Raspbery Pi 3s, I created a local ARM-based (k3s) Kubernetes swarm and distribured Docker deployments using kubectl. Currently, I'm thinking of running some simple image classification using Tensorflow.
+						<h4>Web Development</h4> This very website! I leveraged a backend of Gulp.JS & Node.JS and a frontend of Zepto.JS & Particles.JS to deliver this to you, all published on <a href="https://github.com/Kai-Richardson/Kai-Richardson.github.io">Github Sites</a>.
 					</li>
 					<li>
-						Web Development: This very website! I leveraged a backend of <a href="https://gulpjs.com/">Gulp.JS</a> & Node.JS and a frontend of <a href="https://zeptojs.com/">Zepto.JS</a> & <a href="https://vincentgarreau.com/particles.js/">Particles.JS</a> to deliver this to you, all published on <a href="https://github.com/Kai-Richardson/Kai-Richardson.github.io">Github Sites</a>.
-					</li>
+						<h4><a href="https://sites.google.com/kkhs.k12.hi.us/kai-richardson-senior-project">My High School Senior Project</a></h4> I planned, promoted, and ran a STEM Family Night at Haiku Elementary (located in Maui, HI), to help get kids excited about technology. I got help from local companies in the form of educational activites for the night. For example, the Air Force Research Lab brought in an inflatable planetarium.
+					</li>					
 					<li>
-						AFA Cyberpatriot: During my senior year of high school, me and my team of 4 won 1st place in the Hawaii State gold division. My main responsibility was to handle all Cisco networking and Windows Server/Home issues.
-					</li>
-					<li>
-						<a href="https://sites.google.com/kkhs.k12.hi.us/kai-richardson-senior-project">My High School Senior Project:</a> I planned, promoted, and ran a STEM Family Night at Haiku Elementary (located in Maui, HI), to help get kids excited about technology. I got help from local companies in the form of educational activites for the night. For example, the Air Force Research Lab brought in an inflatable planetarium.
+						<h4>AFA Cyberpatriot</h4> During my senior year of high school, me and my team of 4 won 1st place in the Hawaii State gold division. My main responsibility was to handle all Cisco networking and Windows Server/Home issues.
 					</li>
 				</ul>
 			</article>
@@ -146,7 +171,7 @@
 
 	<footer id="contact">
 		<div class="text-center">
-			<h4><strong>Kai Richardson</strong></h4>
+			<h3><strong>Kai Richardson</strong></h3>
 			<ul class="list-unstyled">
 				<li><i class="fa fa-phone fa-fw"></i> (808) 419-1253</li>
 				<li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:kairichardson@gmail.com">kairichardson@gmail.com</a>
