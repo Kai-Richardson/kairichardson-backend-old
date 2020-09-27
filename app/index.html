@@ -48,10 +48,15 @@
 	<script type="application/ld+json">
 		{
 		  "@context": "http://schema.org",
-		  "@type": "Organization",
+		  "@type": "Person",
 		  "name": "Kai Richardson",
 		  "url": "https://kairichardson.com/",
-		  "address": "",
+		  "alumniOf": {
+			  "@type": "Organization",
+			  "name": "University of Portland"
+		  }
+		  "knowsLanguage": "English",
+		  "gender": "Male",
 		  "sameAs": [
 			"https://twitter.com/_kairichardson_",
 			"https://linkedin.com/in/kairichardson/"
@@ -65,7 +70,7 @@
 				<a href="#welcome">Home</a>
 			</li>
 			<li>
-				<a href="#talents">talents</a>
+				<a href="#talents">Talents</a>
 			</li>
 			<li>
 				<a href="#projects">Projects</a>
@@ -79,7 +84,7 @@
 	<section id="welcome" class="section">
 		<header class="header">
 			<div class="text-vertical-center">
-				<img src="img/logo.svg" class="logo" alt="KR" onerror="this.src=logo.png; this.onerror=null;" >
+				<img src="img/logo.svg" class="logo" alt="My Logo" onerror="this.src=logo.png; this.onerror=null;" >
 				<h1 class="stroke">Hey, I'm Kai Richardson.</h1><h2 class="stroke">I'm a software/DevOps enthusiast and a game developer.</h2>
 			</div>
 			<a href="#talents" id="down-button">
