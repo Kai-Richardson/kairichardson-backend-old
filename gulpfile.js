@@ -1,18 +1,23 @@
 const gulp = require('gulp');
 const del = require('del');
+const fs = require('fs');
+
+const useref = require('gulp-useref');
+const cache = require('gulp-cache');
+const flatten = require('gulp-flatten')
+
 const sass = require('gulp-sass');
 const cssnano = require('cssnano');
 const postcss = require('gulp-postcss');
+
 const autoprefixer = require('autoprefixer');
 const imagemin = require('gulp-imagemin');
-const cache = require('gulp-cache');
-const useref = require('gulp-useref');
 const uglify = require('gulp-uglify');
 const gulpIf = require('gulp-if');
+const convertNewline = require('gulp-convert-newline');
+
 const browserSync = require('browser-sync').create();
 const realFavicon = require('gulp-real-favicon');
-const fs = require('fs');
-const convertNewline = require('gulp-convert-newline');
 
 
 gulp.task('lineEndings', function () {
@@ -35,8 +40,9 @@ gulp.task('sass', function () {
 });
 
 gulp.task('images', function () {
-	return gulp.src(['app/img/**/*.+(png|jpg|gif|svg)'])
+	return gulp.src(['app/img/**/*.+(png|jpg|gif|svg|ico)'])
 		.pipe(cache(imagemin()))
+		.pipe(flatten())
 		.pipe(gulp.dest('dist/img'))
 });
 
@@ -61,12 +67,21 @@ gulp.task('copy', function (done) {
 		.pipe(gulp.dest('dist'));
 	gulp.src('app/LICENSE')
 		.pipe(gulp.dest('dist'));
+	gulp.src('app/sitemap.xml')
+		.pipe(gulp.dest('dist'));
 	gulp.src('app/robots.txt')
 		.pipe(gulp.dest('dist'));
 	gulp.src('app/README.md')
 		.pipe(gulp.dest('dist'));
 	gulp.src('app/assets/**/*')
 		.pipe(gulp.dest('dist/assets'));
+	gulp.src('app/img/favicon/site.webmanifest')
+		.pipe(flatten())
+		.pipe(gulp.dest('dist/img'));
+	gulp.src('app/img/favicon/browserconfig.xml')
+		.pipe(flatten())
+		.pipe(gulp.dest('dist/img'));
+	
 	done();
 });
 
