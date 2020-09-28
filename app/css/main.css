@@ -28,19 +28,19 @@ a {
   .nav .links {
     display: inline-block;
     transition: left .5s;
-    padding: 1.5vh;
+    padding: 1.2vh;
     background: rgba(0, 0, 0, 0.7); }
     .nav .links li {
       display: inline-block;
-      margin-right: 10px; }
+      margin-right: 0.8em; }
       .nav .links li:last-child {
         margin-right: 0; }
     .nav .links a {
       position: relative;
       display: inline-block;
-      padding: 0.8em 0.8em;
+      padding: 0.7em 0.7em;
       text-transform: uppercase;
-      font-size: 1.1em;
+      font-size: 1.05em;
       color: #fff;
       text-decoration: none;
       transition: color .5s; }
@@ -96,7 +96,10 @@ a {
   user-select: none;
   margin-bottom: 1em; }
 
-#particles-js {
+div:not(#particles-js) {
+  z-index: 2; }
+
+.particles-js {
   position: absolute;
   z-index: -1;
   top: 0;
@@ -149,9 +152,6 @@ footer {
   padding: 75px 15px 50px;
   text-align: center; }
 
-div:not(#particles-js) {
-  z-index: 2; }
-
 #talents {
   background: #3aaf82;
   color: #e6ebe0; }
@@ -182,8 +182,8 @@ div:not(#particles-js) {
           position: absolute;
           bottom: -0.2em;
           left: 0;
-          border-right: 0.8em solid transparent;
-          border-bottom: 0.8em solid #1a535c; }
+          border-right: 0.6em solid transparent;
+          border-bottom: 0.6em solid #1a535c; }
 
 #projects {
   background: #e37163;

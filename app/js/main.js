@@ -1,7 +1,16 @@
 
-particlesJS.load('particles-js', 'assets/particles.json');
+window.onload = function() {
+	Particles.init({
+	  selector: '.particles-js',
+	  maxParticles: 120,
+	  connectParticles: true,
+	  sizeVariations: 2,
+	  minDistance: 200,
+	  color: "#3aaf82" //$colorPrimary
+	});
+  };
 
-//#to-top button appears after scrolling
+// #to-top button appears after scrolling
 var fixed = false;
 $(document).scroll(function() {
 	if ($(this).scrollTop() > 250) {
