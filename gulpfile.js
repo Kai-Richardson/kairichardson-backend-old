@@ -12,7 +12,7 @@ const postcss = require('gulp-postcss');
 
 const autoprefixer = require('autoprefixer');
 const imagemin = require('gulp-imagemin');
-const uglify = require('gulp-uglify');
+const terser = require('gulp-terser');
 const gulpIf = require('gulp-if');
 const convertNewline = require('gulp-convert-newline');
 
@@ -57,7 +57,7 @@ gulp.task('useref', function () {
 		cssnano()]
 	return gulp.src('app/*.html')
 		.pipe(gulpIf('*.html', useref()))
-		.pipe(gulpIf('*.js', uglify()))
+		.pipe(gulpIf('*.js', terser()))
 		.pipe(gulpIf('*.css', postcss(plugins)))
 		.pipe(gulp.dest('dist'))
 });
