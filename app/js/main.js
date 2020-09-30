@@ -1,8 +1,12 @@
 
 window.onload = function() {
+	let particleNum = 120;
+	if (navigator.userAgent.match(/Mobile/)) {
+		particleNum = 20;
+	}
 	Particles.init({
 	  selector: '.particles-js',
-	  maxParticles: 120,
+	  maxParticles: particleNum,
 	  connectParticles: true,
 	  sizeVariations: 2,
 	  minDistance: 200,
