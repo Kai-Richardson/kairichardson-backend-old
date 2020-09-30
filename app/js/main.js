@@ -1,7 +1,7 @@
 
 window.onload = function() {
 	let particleNum = 120;
-	if(window.matchMedia("only screen and (max-width: 760px)").matches) {
+	if(/Android|Mobi|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 		particleNum = 20;
 	}
 	Particles.init({
