@@ -194,9 +194,11 @@ gulp.task('check-for-favicon-update', function (done) {
 	});
 });
 
-gulp.task('build', gulp.series('clean:dist',
-	gulp.parallel('images', 'sass', 'fonts'),
-	'copy',
-	'useref',
-	gulp.parallel('inject-favicon-markups', 'lineEndings')
-));
+gulp.task('build', 
+	gulp.series('clean:dist',
+		gulp.parallel('images', 'sass', 'fonts'),
+		'copy',
+		'useref',
+		gulp.parallel('inject-favicon-markups', 'lineEndings')
+	)
+);
