@@ -6,7 +6,7 @@ const useref = require('gulp-useref');
 const cache = require('gulp-cache');
 const flatten = require('gulp-flatten')
 
-const sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('sass'));
 const cssnano = require('cssnano');
 const postcss = require('gulp-postcss');
 
